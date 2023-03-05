@@ -15,6 +15,7 @@
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
 
+  [TO ACESS THIS APP, just click hire](https://charles-mrt.github.io/currency-converter/)
 <br>
 
 <p align="center">
