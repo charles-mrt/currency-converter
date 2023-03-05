@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  [TO ACESS THIS APP - click hire](https://charles-mrt.github.io/currency-converter/)
+   <a href="https://charles-mrt.github.io/currency-converter/">[TO ACESS THIS APP - click hire]</a>
 </p>
 <br>
 
