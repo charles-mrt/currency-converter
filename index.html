@@ -11,35 +11,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="src/style/style.css">
-
+  <script src="https://unpkg.com/phosphor-icons"></script>
   <title>Currency Converter</title>
 
 </head>
 
 <body>
+ 
   <div id="content">
-
+    <button class="swapThemeColor"><i class="ph-sun-dim"></i></button>
+    
     <div id="currency">
       <div class="currencyFields">
-        
+
         <label for="">
           <header>Conversor de moedas</header>
         </label>
-        
+
         <div class="selectCurrency">
-          <select>
-            <option value="value1" selected>$1000</option>
-            <option value="value2">$1000</option>
-            <option value="value3">$1000</option>
-          </select>
 
-          <img src="./public/arrows.svg" alt="setas">
+          <div class="firstCurrency">
+            <span class="currencySimbol">$</span>
+            <input class="currencyFrom" type="number" value="">
+            <span class="separator"></span>
+            <select class="currencyFrom"></select>
+          </div>
+          <button class="swapCurrency"><i class="ph-arrows-left-right"></i></button>
 
-          <select>
-            <option value="value1" selected>R$ 5.148,20</option>
-            <option value="value2">R$ 5.148,20</option>
-            <option value="value3">R$ 5.148,20</option>
-          </select>
+          <div class="secondCurrency">
+            <span class="currencySimbol"> $ </span>
+            <input class="currencyTo" type="number" value="" disabled>
+            <span class="separator"></span>
+            <select class="currencyTo"></select>
+          </div>
+
         </div>
 
       </div>
@@ -53,5 +58,6 @@
   </div>
 
 </body>
+<script type="module" src="./src/script/main.js" defer></script>
 
 </html>
