@@ -5,23 +5,37 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.6s ease, color 1s ease;
 }
 
 :root {
-
-  /* main color is modify by js*/
-  --main-color: #8257E5;
-  --primary-color: #d4d4d4;
-  --background: #0A0A0B;
-  --text-primary: #0F172A;
-
-
   /* 1rem = 10px*/
   font-size: 62%;
 }
 
+[data-theme="light"] {
+  --body-color: #F8FAFC;
+  --text-primary: #0F172A;
+  --surfaces: #FFFFFF;
+  --highlight: #7C3AED;
+  --selected:#EDE9FE;
+  --medium-gray: #94A3B8;
+  --theme-icon:#c6a5ff;
+  --main-color:#FFFFFF;
+}
+[data-theme="dark"] {
+  --body-color: #0A0A0B;
+  --text-primary: #94A3B8;
+  --surfaces: #2b2b38;
+  --highlight: #7C3AED;
+  --selected:#2b2b38;
+  --medium-gray: #6c6e72;
+  --theme-icon:#9354ff;
+  --main-color:#0F172A;
+}
+
 body {
-  background-color: #1E1E1E;
+  background: var(--body-color);
   width: 100vw;
   height: 100vh;
 
@@ -35,18 +49,28 @@ body {
   max-width: 80rem;
   width: 100%;
   height: 69.2rem;
-  background: #282936;
+  background: var(--surfaces);
   padding: 8rem 6.4rem;
   border-radius: 1.6rem;
-  box-shadow: 0 .4rem 3.2rem 0 var(--background);
-  
+  box-shadow: 0 .4rem 3.2rem 0 rgb(15,23,42,15%);
+
+  position: relative;
+}
+
+#content .swapThemeColor {
+  font-size: 3.5rem;
+  background: transparent;
+  position: absolute;
+  right: 1rem;
+  top: .5rem;
+  color: var(--theme-icon);
 }
 
 #currency header {
   font-family: 'Inter', sans-serif;
   font-size: 2.0rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--text-primary);
 }
 
 #currency {
@@ -66,28 +90,95 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.currencyFields .selectCurrency img {
-  width: 1.8rem;
-  height: 1.2rem;
-}
-.currencyFields .selectCurrency select {
-  width: 29.2rem;
-  height: 5.6rem;
-  border-radius: .8rem;
+  width: 100%;
 
+}
+
+.currencyFields .selectCurrency div {
+  display: flex;
+  align-items: center;
+  width: 30rem;
+  border: 1px solid var(--medium-gray); 
+  background-color: var(--main-color);
+  border-radius: .8rem;
+  overflow: hidden;
+}
+
+.currencyFields .selectCurrency .currencySimbol,
+.currencyFields .selectCurrency input, 
+.currencyFields .selectCurrency select {
   font-size: 1.6rem;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
+  line-height: 2.4rem;
   text-transform: uppercase;
   color: var(--text-primary);
+  background: var(--main-color);
+  outline: none;
+}
+.currencyFields .selectCurrency .currencySimbol {
+  padding: 1.6rem 0 1.6rem 1rem;
+}
 
-  outline: 2px solid #94A3B8;
+.currencyFields .selectCurrency input {
+  padding: 1.6rem 1rem;
+  width: 14rem;
+}
+
+.currencyFields .selectCurrency select {
+  padding: 1.6rem;
+  width: 100%;
 }
 
 .currencyFields .selectCurrency select:focus {
-  outline: 2px solid #7C3AEDED;
+  background: var(--selected);
 }
+.currencyFields .selectCurrency select:focus,
+.currencyFields .selectCurrency input:focus {
+  border-color: var(--highlight);
+}
+
+.currencyFields .selectCurrency select option { 
+  background: var(--surfaces);
+}
+.currencyFields .selectCurrency .separator {
+  background-color: var(--medium-gray);
+  width: .5rem;
+  height: 3rem;
+}
+
+
+button.swapCurrency {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  font-size: 2.5rem;
+  margin: 2rem;
+  background: var(--surfaces);
+  color: var(--text-primary);
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.currencyFields .selectCurrency img {
+  width: 1.8rem;
+  height: 1.2rem;
+ }
 
 #currencyChart {
   width: 100%;
@@ -105,11 +196,9 @@ body {
   }
   #content {
     height: 98%;
-    padding: 1.6rem
+    padding: 1.6rem;
   }
-  #currency {
-
-  }
+  
   .currencyFields .selectCurrency {
     flex-direction: column; 
   }
@@ -123,4 +212,8 @@ body {
     width: 100%;
   }
 
+  button.swapCurrency {
+    margin: 1.5rem;
+  }
+  
 }
