@@ -34,7 +34,7 @@ Currency Converter is a app that converts currency values where you can add the 
 
 ## 🔖 Layout
 
-To test the project you can access through  [DESSE LINK](https://charles-mrt.github.io/currency-converter/)
+To test the project you can access through  [THISLINK](https://charles-mrt.github.io/currency-converter/)
 <!-- To test the project you can access through you can view the project layout through [DESSE LINK](). É necessário ter conta no [Figma](https://figma.com) para acessá-lo. -->
 
 ## :memo: Licença
